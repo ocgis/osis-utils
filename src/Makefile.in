@@ -73,8 +73,6 @@ bin_PROGRAMS = lines.prg
 
 lines_prg_SOURCES = \
 	lines.c
-
-lines_prg_LDADD = -loaesis
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = ../config.h
 CONFIG_CLEAN_FILES = 
@@ -86,6 +84,7 @@ CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
 lines_prg_OBJECTS =  lines.o
+lines_prg_LDADD = $(LDADD)
 lines_prg_DEPENDENCIES = 
 lines_prg_LDFLAGS = 
 CFLAGS = @CFLAGS@
