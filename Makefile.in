@@ -59,14 +59,15 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 CC = @CC@
 MAKEINFO = @MAKEINFO@
-OGEMLIBIS_CFLAGS = @OGEMLIBIS_CFLAGS@
-OGEMLIBIS_CONFIG = @OGEMLIBIS_CONFIG@
-OGEMLIBIS_LIBS = @OGEMLIBIS_LIBS@
+OAESIS_CFLAGS = @OAESIS_CFLAGS@
+OAESIS_CONFIG = @OAESIS_CONFIG@
+OAESIS_LIBS = @OAESIS_LIBS@
+OVDISIS_CFLAGS = @OVDISIS_CFLAGS@
+OVDISIS_CONFIG = @OVDISIS_CONFIG@
+OVDISIS_LIBS = @OVDISIS_LIBS@
 PACKAGE = @PACKAGE@
 RANLIB = @RANLIB@
 VERSION = @VERSION@
-ogemlibis_cflags = @ogemlibis_cflags@
-ogemlibis_libs = @ogemlibis_libs@
 
 SUBDIRS = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -87,9 +88,9 @@ all: all-recursive-am all-am
 
 .SUFFIXES:
 $(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4)
-	cd $(top_srcdir) && $(AUTOMAKE) --gnu --include-deps Makefile
+	cd $(top_srcdir) && $(AUTOMAKE) --gnu Makefile
 
-Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
 	cd $(top_builddir) \
 	  && CONFIG_FILES=$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
@@ -223,6 +224,11 @@ distdir: $(DISTFILES)
 	-rm -rf $(distdir)
 	mkdir $(distdir)
 	-chmod 777 $(distdir)
+	here=`cd $(top_builddir) && pwd`; \
+	top_distdir=`cd $(distdir) && pwd`; \
+	distdir=`cd $(distdir) && pwd`; \
+	cd $(top_srcdir) \
+	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --gnu Makefile
 	@for file in $(DISTFILES); do \
 	  d=$(srcdir); \
 	  test -f $(distdir)/$$file \

@@ -1,13 +1,13 @@
-#include <aes.h>
+#include <aesbind.h>
 #include <osbind.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <vdi.h>
+#include <vdibind.h>
 
-#define	WORD	int
+#define	WORD	short
 
-static WORD	vid;
+static int	vid;
 static WORD num_colors;
 static char	title[] = "Lines";
 	
@@ -30,7 +30,8 @@ WORD	min(WORD a,WORD b)
 
 #define	NUM_LINES	10
 
-void	updatewait(int wid) {
+void
+updatewait (int wid) {
   WORD	ant_klick;
   WORD	buffert[16];
   WORD	happ;
@@ -43,26 +44,40 @@ void	updatewait(int wid) {
   VRECT	lines[NUM_LINES];
   
   WORD	sx1 = 5,sy1 = 10,sx2 = 15,sy2 = 5;
-  
-  wind_get(wid,WF_WORKXYWH,&winx,&winy,&winw,&winh);
+
+  wind_get (wid, WF_WORKXYWH, &winx, &winy, &winw, &winh);
+
+  fprintf (stderr, "wind_get (WF_WORKXYWH...): x=%d y=%d w=%d h=%d\n",
+           winx, winy, winw, winh);
   
   lines[0].v_x1 = winx;
   lines[0].v_y1 = winy;
   lines[0].v_x2 = winx + 100;
   lines[0].v_y2 = winy + 100;
-  
+
   do {
     happ = evnt_multi(MU_KEYBD | MU_MESAG | MU_TIMER,0,0,0,0,0,0,0,0,0
                       ,0,0,0,0,buffert,0,&x,&y,&knapplage,&tanglage
                       ,&tangent,&ant_klick);
-    
+
+    if (happ & MU_MESAG) {
+      fprintf (stderr,
+               "lines.prg: evnt_multi returned MU_MESAG, buffert[0] = 0x%x (%d)\n",
+               buffert[0], buffert[0]);
+    }
+
     if((happ & MU_MESAG) && (buffert[0] == WM_REDRAW)) {
       WORD	x,y,w,h;
       
+      fprintf (stderr, "lines.prg: Got WM_REDRAW\n");
+
       wind_update(BEG_UPDATE);
       
-      wind_get(wid,WF_FIRSTXYWH,&x,&y,&w,&h);
-      
+      wind_get (wid, WF_FIRSTXYWH, &x, &y, &w, &h);
+
+      fprintf (stderr, "wind_get (WF_FIRSTXYWH...): x=%d y=%d w=%d h=%d\n",
+               x, y, w, h);
+
       while((w > 0) && (h > 0))
       {
         WORD	xn,yn,wn,hn;
@@ -71,11 +86,11 @@ void	updatewait(int wid) {
         wn = min(x + w, buffert[4] + buffert[6]) - xn;
         yn = max(y,buffert[5]);
         hn = min(y + h, buffert[5] + buffert[7]) - yn;
-        
+   
         if((wn > 0) && (hn > 0))
         {
           WORD  i;
-          WORD	xyxy[4];
+          int	xyxy[4];
           
           xyxy[0] = xn;
           xyxy[1] = yn;
@@ -83,9 +98,11 @@ void	updatewait(int wid) {
           xyxy[3] = yn+hn-1;
           
           vs_clip(vid,1,xyxy);
-          
+
+          /*
           graf_mouse(M_OFF,NULL);
-          
+          */
+
           vr_recfl(vid,xyxy);
           
           for(i = 0; i < num_lines; i++) {
@@ -93,9 +110,11 @@ void	updatewait(int wid) {
             
             v_pline(vid,2,&lines[i]);
           };
-          
+
+          /*
           graf_mouse(M_ON,NULL);
-          
+          */
+
           vs_clip(vid,0,xyxy);
         }
         
@@ -170,7 +189,11 @@ void	updatewait(int wid) {
     }
     else if(happ & MU_TIMER) {
       VRECT	delete;
-      
+
+      /*
+      fprintf (stderr, "lines.prg: evnt_multi returned MU_TIMER\n");
+      */
+
       delete = lines[(lastline + 1) % NUM_LINES];
       lines[(lastline + 1) % NUM_LINES] = lines[lastline];
       lastline = (lastline + 1) % NUM_LINES;
@@ -206,13 +229,18 @@ void	updatewait(int wid) {
         
         lines[lastline].v_y2 += sy2;
       };
-      
+
       wind_update(BEG_UPDATE);
       
       wind_get(wid,WF_FIRSTXYWH,&x,&y,&w,&h);
-      
+
+      /*
+      fprintf (stderr, "wind_get (WF_FIRSTXYWH...): x=%d y=%d w=%d h=%d\n",
+               x, y, w, h);
+               */
+
       while((w > 0) && (h > 0)) {
-        WORD	xyxy[4];
+        int	xyxy[4];
         
         xyxy[0] = x;
         xyxy[1] = y;
@@ -220,71 +248,96 @@ void	updatewait(int wid) {
         xyxy[3] = y + h - 1;
 
         vs_clip(vid,1,xyxy);
-        
+
+        /*
         graf_mouse(M_OFF,NULL);
-        
+        */
+
         vsl_color(vid,lastline % (num_colors - 1));
         v_pline(vid,2,&lines[lastline]);
         
         if(num_lines == NUM_LINES) {
           vsl_color(vid,BLACK);
           v_pline(vid,2,&delete);
-        };
-        
+        }
+
+        /*
         graf_mouse(M_ON,NULL);
+        */
+
         vs_clip(vid,0,xyxy);
-        
+
         wind_get(wid,WF_NEXTXYWH,&x,&y,&w,&h);
-      };
+      }
       
       wind_update(END_UPDATE);
-      
+
       if(num_lines < NUM_LINES) {
         num_lines++;
       };
     };
   }while(1);
-};
+}
 
-void	testwin(void)
+void testwin(void)
 {
   WORD	xoff,yoff,woff,hoff;
   
   WORD	wid;
   
-  
   wid = wind_create(NAME|MOVER|FULLER|SIZER|CLOSER,0,0,640,480);
-  
+
+  /*
   wind_set(wid,WF_NAME,title);
+  */
   
+  /*
   wind_get(0,WF_WORKXYWH,&xoff,&yoff,&woff,&hoff);
-  
+  */
+
+  xoff = 0;
+  yoff = 0;
+  woff = 640;
+  hoff = 480;
   wind_open(wid,xoff,yoff,woff,hoff);
-  
+
   updatewait(wid);
-  
+
+  /*
   wind_delete(wid);
+  */
 }
 
 
-void	main(void) {
-  WORD	work_in[] = {1,1,1,1,1,1
+int
+main ()
+{
+  int	work_in[] = {1,1,1,1,1,1
                      ,1,1,1,1,2,0};
   
-  WORD	work_out[57];
+  int	work_out[57];
   
+  WORD  wc, hc, wb, hb;
+
+  appl_init();
+
+  vid = graf_handle (&wc, &hc, &wb, &hb);
   v_opnvwk(work_in,&vid,work_out);
   num_colors = work_out[39];
-  
+  num_colors = 256;
+  fprintf (stderr, "num_colors = %d\n", num_colors);
+
   vsf_interior(vid,1);
   
-  appl_init();
-  
+  /*
   graf_mouse(ARROW,0L);
-  
+  */  
+
   testwin();
-  
+
   appl_exit();
 	
   v_clsvwk(vid);
+
+  return 0;
 }

@@ -12,11 +12,17 @@ ac_help=
 ac_default_prefix=/usr/local
 # Any additions from configure.in:
 ac_help="$ac_help
-  --with-ogemlibis-prefix=PFX   Prefix where oogemlibis is installed (optional)"
+  --with-ovdisis-prefix=PFX   Prefix where oVDIsis is installed (optional)"
 ac_help="$ac_help
-  --with-ogemlibis-exec-prefix=PFX Exec prefix where ogemlibis is installed (optional)"
+  --with-ovdisis-exec-prefix=PFX Exec prefix where oVDIsis is installed (optional)"
 ac_help="$ac_help
-  --disable-ogemlibistest       Do not try to compile and run a test ogemlibis program"
+  --disable-ovdisistest       Do not try to compile and run a test oVDIsis program"
+ac_help="$ac_help
+  --with-oaesis-prefix=PFX   Prefix where oaesis is installed (optional)"
+ac_help="$ac_help
+  --with-oaesis-exec-prefix=PFX Exec prefix where oaesis is installed (optional)"
+ac_help="$ac_help
+  --disable-oaesistest       Do not try to compile and run a test oaesis program"
 
 # Initialize some variables set by options.
 # The variables have the same names as the options, with
@@ -558,7 +564,7 @@ ac_configure=$ac_aux_dir/configure # This should be Cygnus configure.
 # SVR4 /usr/ucb/install, which tries to use the nonexistent group "staff"
 # ./install, which can be erroneously created by make from ./install.sh.
 echo $ac_n "checking for a BSD compatible install""... $ac_c" 1>&6
-echo "configure:562: checking for a BSD compatible install" >&5
+echo "configure:568: checking for a BSD compatible install" >&5
 if test -z "$INSTALL"; then
 if eval "test \"`echo '$''{'ac_cv_path_install'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -611,7 +617,7 @@ test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 test -z "$INSTALL_SCRIPT" && INSTALL_SCRIPT='${INSTALL_PROGRAM}'
 
 echo $ac_n "checking whether build environment is sane""... $ac_c" 1>&6
-echo "configure:615: checking whether build environment is sane" >&5
+echo "configure:621: checking whether build environment is sane" >&5
 # Just in case
 sleep 1
 echo timestamp > conftestfile
@@ -668,7 +674,7 @@ test "$program_suffix" != NONE &&
 test "$program_transform_name" = "" && program_transform_name="s,x,x,"
 
 echo $ac_n "checking whether ${MAKE-make} sets \${MAKE}""... $ac_c" 1>&6
-echo "configure:672: checking whether ${MAKE-make} sets \${MAKE}" >&5
+echo "configure:678: checking whether ${MAKE-make} sets \${MAKE}" >&5
 set dummy ${MAKE-make}; ac_make=`echo "$2" | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_prog_make_${ac_make}_set'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -707,7 +713,7 @@ fi
 
 missing_dir=`cd $ac_aux_dir && pwd`
 echo $ac_n "checking for working aclocal""... $ac_c" 1>&6
-echo "configure:711: checking for working aclocal" >&5
+echo "configure:717: checking for working aclocal" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -720,7 +726,7 @@ else
 fi
 
 echo $ac_n "checking for working autoconf""... $ac_c" 1>&6
-echo "configure:724: checking for working autoconf" >&5
+echo "configure:730: checking for working autoconf" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -733,7 +739,7 @@ else
 fi
 
 echo $ac_n "checking for working automake""... $ac_c" 1>&6
-echo "configure:737: checking for working automake" >&5
+echo "configure:743: checking for working automake" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -746,7 +752,7 @@ else
 fi
 
 echo $ac_n "checking for working autoheader""... $ac_c" 1>&6
-echo "configure:750: checking for working autoheader" >&5
+echo "configure:756: checking for working autoheader" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -759,7 +765,7 @@ else
 fi
 
 echo $ac_n "checking for working makeinfo""... $ac_c" 1>&6
-echo "configure:763: checking for working makeinfo" >&5
+echo "configure:769: checking for working makeinfo" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -799,7 +805,7 @@ test "$program_transform_name" = "" && program_transform_name="s,x,x,"
 # Extract the first word of "gcc", so it can be a program name with args.
 set dummy gcc; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:803: checking for $ac_word" >&5
+echo "configure:809: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_CC'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -828,7 +834,7 @@ if test -z "$CC"; then
   # Extract the first word of "cc", so it can be a program name with args.
 set dummy cc; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:832: checking for $ac_word" >&5
+echo "configure:838: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_CC'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -876,7 +882,7 @@ fi
 fi
 
 echo $ac_n "checking whether the C compiler ($CC $CFLAGS $LDFLAGS) works""... $ac_c" 1>&6
-echo "configure:880: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) works" >&5
+echo "configure:886: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) works" >&5
 
 ac_ext=c
 # CFLAGS is not in ac_cpp because -g, -O, etc. are not valid cpp options.
@@ -886,11 +892,11 @@ ac_link='${CC-cc} -o conftest $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS 
 cross_compiling=$ac_cv_prog_cc_cross
 
 cat > conftest.$ac_ext <<EOF
-#line 890 "configure"
+#line 896 "configure"
 #include "confdefs.h"
 main(){return(0);}
 EOF
-if { (eval echo configure:894: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
+if { (eval echo configure:900: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
   ac_cv_prog_cc_works=yes
   # If we can't run a trivial program, we are probably using a cross compiler.
   if (./conftest; exit) 2>/dev/null; then
@@ -910,12 +916,12 @@ if test $ac_cv_prog_cc_works = no; then
   { echo "configure: error: installation or configuration problem: C compiler cannot create executables." 1>&2; exit 1; }
 fi
 echo $ac_n "checking whether the C compiler ($CC $CFLAGS $LDFLAGS) is a cross-compiler""... $ac_c" 1>&6
-echo "configure:914: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) is a cross-compiler" >&5
+echo "configure:920: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) is a cross-compiler" >&5
 echo "$ac_t""$ac_cv_prog_cc_cross" 1>&6
 cross_compiling=$ac_cv_prog_cc_cross
 
 echo $ac_n "checking whether we are using GNU C""... $ac_c" 1>&6
-echo "configure:919: checking whether we are using GNU C" >&5
+echo "configure:925: checking whether we are using GNU C" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_gcc'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -924,7 +930,7 @@ else
   yes;
 #endif
 EOF
-if { ac_try='${CC-cc} -E conftest.c'; { (eval echo configure:928: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }; } | egrep yes >/dev/null 2>&1; then
+if { ac_try='${CC-cc} -E conftest.c'; { (eval echo configure:934: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }; } | egrep yes >/dev/null 2>&1; then
   ac_cv_prog_gcc=yes
 else
   ac_cv_prog_gcc=no
@@ -939,7 +945,7 @@ if test $ac_cv_prog_gcc = yes; then
   ac_save_CFLAGS="$CFLAGS"
   CFLAGS=
   echo $ac_n "checking whether ${CC-cc} accepts -g""... $ac_c" 1>&6
-echo "configure:943: checking whether ${CC-cc} accepts -g" >&5
+echo "configure:949: checking whether ${CC-cc} accepts -g" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_cc_g'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -977,7 +983,7 @@ fi
 # SVR4 /usr/ucb/install, which tries to use the nonexistent group "staff"
 # ./install, which can be erroneously created by make from ./install.sh.
 echo $ac_n "checking for a BSD compatible install""... $ac_c" 1>&6
-echo "configure:981: checking for a BSD compatible install" >&5
+echo "configure:987: checking for a BSD compatible install" >&5
 if test -z "$INSTALL"; then
 if eval "test \"`echo '$''{'ac_cv_path_install'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -1027,7 +1033,7 @@ test -z "$INSTALL_PROGRAM" && INSTALL_PROGRAM='${INSTALL}'
 test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 
 echo $ac_n "checking whether ${MAKE-make} sets \${MAKE}""... $ac_c" 1>&6
-echo "configure:1031: checking whether ${MAKE-make} sets \${MAKE}" >&5
+echo "configure:1037: checking whether ${MAKE-make} sets \${MAKE}" >&5
 set dummy ${MAKE-make}; ac_make=`echo "$2" | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_prog_make_${ac_make}_set'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -1056,7 +1062,7 @@ fi
 # Extract the first word of "ranlib", so it can be a program name with args.
 set dummy ranlib; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:1060: checking for $ac_word" >&5
+echo "configure:1066: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_RANLIB'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -1084,7 +1090,7 @@ fi
 
 
 echo $ac_n "checking for main in -lmint""... $ac_c" 1>&6
-echo "configure:1088: checking for main in -lmint" >&5
+echo "configure:1094: checking for main in -lmint" >&5
 ac_lib_var=`echo mint'_'main | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_lib_$ac_lib_var'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -1092,14 +1098,14 @@ else
   ac_save_LIBS="$LIBS"
 LIBS="-lmint  $LIBS"
 cat > conftest.$ac_ext <<EOF
-#line 1096 "configure"
+#line 1102 "configure"
 #include "confdefs.h"
 
 int main() {
 main()
 ; return 0; }
 EOF
-if { (eval echo configure:1103: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
+if { (eval echo configure:1109: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
   rm -rf conftest*
   eval "ac_cv_lib_$ac_lib_var=yes"
 else
@@ -1127,165 +1133,323 @@ else
 fi
 
 
-if test x$with_ogemlibis = xyes ; then
+if test x$with_ovdisis = xyes ; then
   { echo "configure: error: 
-*** Directory must be specified for --with-ogemlibis" 1>&2; exit 1; }
+*** Directory must be specified for --with-ovdisis" 1>&2; exit 1; }
 fi
 
-if test x$with_ogemlibis = x ; then 
-  # Look for separately installed ogemlibis
+if test x$with_ovdisis = x ; then 
+  # Look for separately installed ovdisis
 
-  # Check whether --with-ogemlibis-prefix or --without-ogemlibis-prefix was given.
-if test "${with_ogemlibis_prefix+set}" = set; then
-  withval="$with_ogemlibis_prefix"
-  ogemlibis_config_prefix="$withval"
+  # Check whether --with-ovdisis-prefix or --without-ovdisis-prefix was given.
+if test "${with_ovdisis_prefix+set}" = set; then
+  withval="$with_ovdisis_prefix"
+  ovdisis_config_prefix="$withval"
 else
-  ogemlibis_config_prefix=""
+  ovdisis_config_prefix=""
 fi
 
-# Check whether --with-ogemlibis-exec-prefix or --without-ogemlibis-exec-prefix was given.
-if test "${with_ogemlibis_exec_prefix+set}" = set; then
-  withval="$with_ogemlibis_exec_prefix"
-  ogemlibis_config_exec_prefix="$withval"
+# Check whether --with-ovdisis-exec-prefix or --without-ovdisis-exec-prefix was given.
+if test "${with_ovdisis_exec_prefix+set}" = set; then
+  withval="$with_ovdisis_exec_prefix"
+  ovdisis_config_exec_prefix="$withval"
 else
-  ogemlibis_config_exec_prefix=""
+  ovdisis_config_exec_prefix=""
 fi
 
-# Check whether --enable-ogemlibistest or --disable-ogemlibistest was given.
-if test "${enable_ogemlibistest+set}" = set; then
-  enableval="$enable_ogemlibistest"
+# Check whether --enable-ovdisistest or --disable-ovdisistest was given.
+if test "${enable_ovdisistest+set}" = set; then
+  enableval="$enable_ovdisistest"
   :
 else
-  enable_ogemlibistest=yes
+  enable_ovdisistest=yes
 fi
 
 
-  if test x$ogemlibis_config_exec_prefix != x ; then
-     ogemlibis_config_args="$ogemlibis_config_args --exec-prefix=$ogemlibis_config_exec_prefix"
-     if test x${OGEMLIBIS_CONFIG+set} != xset ; then
-        OGEMLIBIS_CONFIG=$ogemlibis_config_exec_prefix/bin/ogemlibis-config
+  if test x$ovdisis_config_exec_prefix != x ; then
+     ovdisis_config_args="$ovdisis_config_args --exec-prefix=$ovdisis_config_exec_prefix"
+     if test x${OVDISIS_CONFIG+set} != xset ; then
+        OVDISIS_CONFIG=$ovdisis_config_exec_prefix/bin/ovdisis-config
      fi
   fi
-  if test x$ogemlibis_config_prefix != x ; then
-     ogemlibis_config_args="$ogemlibis_config_args --prefix=$ogemlibis_config_prefix"
-     if test x${OGEMLIBIS_CONFIG+set} != xset ; then
-        OGEMLIBIS_CONFIG=$ogemlibis_config_prefix/bin/ogemlibis-config
+  if test x$ovdisis_config_prefix != x ; then
+     ovdisis_config_args="$ovdisis_config_args --prefix=$ovdisis_config_prefix"
+     if test x${OVDISIS_CONFIG+set} != xset ; then
+        OVDISIS_CONFIG=$ovdisis_config_prefix/bin/ovdisis-config
      fi
   fi
 
-  # Extract the first word of "ogemlibis-config", so it can be a program name with args.
-set dummy ogemlibis-config; ac_word=$2
+  # Extract the first word of "ovdisis-config", so it can be a program name with args.
+set dummy ovdisis-config; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:1180: checking for $ac_word" >&5
-if eval "test \"`echo '$''{'ac_cv_path_OGEMLIBIS_CONFIG'+set}'`\" = set"; then
+echo "configure:1186: checking for $ac_word" >&5
+if eval "test \"`echo '$''{'ac_cv_path_OVDISIS_CONFIG'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
-  case "$OGEMLIBIS_CONFIG" in
+  case "$OVDISIS_CONFIG" in
   /*)
-  ac_cv_path_OGEMLIBIS_CONFIG="$OGEMLIBIS_CONFIG" # Let the user override the test with a path.
+  ac_cv_path_OVDISIS_CONFIG="$OVDISIS_CONFIG" # Let the user override the test with a path.
   ;;
   *)
   IFS="${IFS= 	}"; ac_save_ifs="$IFS"; IFS="${IFS}:"
   for ac_dir in $PATH; do
     test -z "$ac_dir" && ac_dir=.
     if test -f $ac_dir/$ac_word; then
-      ac_cv_path_OGEMLIBIS_CONFIG="$ac_dir/$ac_word"
+      ac_cv_path_OVDISIS_CONFIG="$ac_dir/$ac_word"
       break
     fi
   done
   IFS="$ac_save_ifs"
-  test -z "$ac_cv_path_OGEMLIBIS_CONFIG" && ac_cv_path_OGEMLIBIS_CONFIG="no"
+  test -z "$ac_cv_path_OVDISIS_CONFIG" && ac_cv_path_OVDISIS_CONFIG="no"
   ;;
 esac
 fi
-OGEMLIBIS_CONFIG="$ac_cv_path_OGEMLIBIS_CONFIG"
-if test -n "$OGEMLIBIS_CONFIG"; then
-  echo "$ac_t""$OGEMLIBIS_CONFIG" 1>&6
+OVDISIS_CONFIG="$ac_cv_path_OVDISIS_CONFIG"
+if test -n "$OVDISIS_CONFIG"; then
+  echo "$ac_t""$OVDISIS_CONFIG" 1>&6
 else
   echo "$ac_t""no" 1>&6
 fi
 
-  min_ogemlibis_version=0.0.0
-  echo $ac_n "checking for ogemlibis - version >= $min_ogemlibis_version""... $ac_c" 1>&6
-echo "configure:1211: checking for ogemlibis - version >= $min_ogemlibis_version" >&5
-  no_ogemlibis=""
-  if test "$OGEMLIBIS_CONFIG" = "no" ; then
-    no_ogemlibis=yes
+  min_ovdisis_version=0.0.1
+  echo $ac_n "checking for oVDIsis - version >= $min_ovdisis_version""... $ac_c" 1>&6
+echo "configure:1217: checking for oVDIsis - version >= $min_ovdisis_version" >&5
+  no_ovdisis=""
+  if test "$OVDISIS_CONFIG" = "no" ; then
+    no_ovdisis=yes
   else
-    OGEMLIBIS_CFLAGS=`$OGEMLIBIS_CONFIG $ogemlibis_config_args --cflags`
-    OGEMLIBIS_LIBS=`$OGEMLIBIS_CONFIG $ogemlibis_config_args --libs`
-    ogemlibis_config_major_version=`$OGEMLIBIS_CONFIG $ogemlibis_config_args --version | \
+    OVDISIS_CFLAGS=`$OVDISIS_CONFIG $ovdisis_config_args --cflags`
+    OVDISIS_LIBS=`$OVDISIS_CONFIG $ovdisis_config_args --libs`
+    ovdisis_config_major_version=`$OVDISIS_CONFIG $ovdisis_config_args --version | \
            sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\1/'`
-    ogemlibis_config_minor_version=`$OGEMLIBIS_CONFIG $ogemlibis_config_args --version | \
+    ovdisis_config_minor_version=`$OVDISIS_CONFIG $ovdisis_config_args --version | \
            sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\2/'`
-    ogemlibis_config_micro_version=`$OGEMLIBIS_CONFIG $ogemlibis_config_args --version | \
+    ovdisis_config_micro_version=`$OVDISIS_CONFIG $ovdisis_config_args --version | \
            sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\3/'`
-    if test "x$enable_ogemlibistest" = "xyes" ; then
+    if test "x$enable_ovdisistest" = "xyes" ; then
       ac_save_CFLAGS="$CFLAGS"
       ac_save_LIBS="$LIBS"
-      CFLAGS="$CFLAGS $OGEMLIBIS_CFLAGS"
-      LIBS="$LIBS $OGEMLIBIS_LIBS"
+      CFLAGS="$CFLAGS $OVDISIS_CFLAGS"
+      LIBS="$LIBS $OVDISIS_LIBS"
      fi
   fi
-  if test "x$no_ogemlibis" = x ; then
+  if test "x$no_ovdisis" = x ; then
      echo "$ac_t""yes" 1>&6
      :     
   else
      echo "$ac_t""no" 1>&6
-     if test "$OGEMLIBIS_CONFIG" = "no" ; then
-       echo "*** The ogemlibis-config script installed by ogemlibis could not be found"
-       echo "*** If ogemlibis was installed in PREFIX, make sure PREFIX/bin is in"
-       echo "*** your path, or set the OGEMLIBIS_CONFIG environment variable to the"
-       echo "*** full path to ogemlibis-config."
+     if test "$OVDISIS_CONFIG" = "no" ; then
+       echo "*** The ovdisis-config script installed by oVDIsis could not be found"
+       echo "*** If oVDIsis was installed in PREFIX, make sure PREFIX/bin is in"
+       echo "*** your path, or set the OVDISIS_CONFIG environment variable to the"
+       echo "*** full path to ovdisis-config."
      else
         :
      fi
-     OGEMLIBIS_CFLAGS=""
-     OGEMLIBIS_LIBS=""
+     OVDISIS_CFLAGS=""
+     OVDISIS_LIBS=""
      { echo "configure: error: 
-*** ogemlibis 0.0.0 or better is required. The latest version of ogemlibis
+*** ovdisis 0.0.1 or better is required. The latest version of ovdisis
 *** is always available from ftp://ftp.nocrew.org." 1>&2; exit 1; }
   fi
   
   
 
 
-  ogemlibis_cflags=$OGEMLIBIS_CFLAGS
-  ogemlibis_libs=$OGEMLIBIS_LIBS
+  ovdisis_cflags=$OVDISIS_CFLAGS
+  ovdisis_libs=$OVDISIS_LIBS
 else
-  # Use uninstalled ogemlibis (assume they got the version right)
+  # Use uninstalled ovdisis (assume they got the version right)
 
-  if test -x $with_ogemlibis/ogemlibis-config ; then 
+  if test -x $with_ovdisis/ovdisis-config ; then 
     :
   else
-    { echo "configure: error: ogemlibis directory ($with_ogemlibis) not present or not configured" 1>&2; exit 1; }
+    { echo "configure: error: ovdisis directory ($with_ovdisis) not present or not configured" 1>&2; exit 1; }
   fi
 
-  # For use in ogemlibis-config
-  ogemlibis_cflags=`$with_ogemlibis/ogemlibis-config --cflags`
-  ogemlibis_libs=`$with_ogemlibis/ogemlibis-config --libs`
+  # For use in ovdisis-config
+  ovdisis_cflags=`$with_ovdisis/ovdisis-config --cflags`
+  ovdisis_libs=`$with_ovdisis/ovdisis-config --libs`
 
-  ogemlibis_release=`$with_ogemlibis/ogemlibis-config --version | sed 's%\\.[0-9]*$%%'`
+  ovdisis_release=`$with_ovdisis/ovdisis-config --version | sed 's%\\.[0-9]*$%%'`
 
   # canonicalize relative paths
-  case $with_ogemlibis in 
+  case $with_ovdisis in 
     /*)
-      ogemlibis_dir=$with_ogemlibis
+      ovdisis_dir=$with_ovdisis
       ;;
     *)
-      ogemlibis_dir="\$(top_builddir)/$with_ogemlibis"
+      ovdisis_dir="\$(top_builddir)/$with_ovdisis"
       ;;
   esac
 
-  OGEMLIBIS_CFLAGS="-I$ogemlibis_dir"
-  OGEMLIBIS_LIBS=$ogemlibis_dir/libfb.la
+  OVDISIS_CFLAGS="-I$ovdisis_dir"
+  OVDISIS_LIBS=$ovdisis_dir/libfb.la
 
   
   
 fi
 
+CPPFLAGS="$CPPFLAGS $OVDISIS_CFLAGS"
+
+if test x$with_oaesis = xyes ; then
+  { echo "configure: error: 
+*** Directory must be specified for --with-oaesis" 1>&2; exit 1; }
+fi
+
+if test x$with_oaesis = x ; then 
+  # Look for separately installed oaesis
+
+  # Check whether --with-oaesis-prefix or --without-oaesis-prefix was given.
+if test "${with_oaesis_prefix+set}" = set; then
+  withval="$with_oaesis_prefix"
+  oaesis_config_prefix="$withval"
+else
+  oaesis_config_prefix=""
+fi
+
+# Check whether --with-oaesis-exec-prefix or --without-oaesis-exec-prefix was given.
+if test "${with_oaesis_exec_prefix+set}" = set; then
+  withval="$with_oaesis_exec_prefix"
+  oaesis_config_exec_prefix="$withval"
+else
+  oaesis_config_exec_prefix=""
+fi
+
+# Check whether --enable-oaesistest or --disable-oaesistest was given.
+if test "${enable_oaesistest+set}" = set; then
+  enableval="$enable_oaesistest"
+  :
+else
+  enable_oaesistest=yes
+fi
 
 
+  if test x$oaesis_config_exec_prefix != x ; then
+     oaesis_config_args="$oaesis_config_args --exec-prefix=$oaesis_config_exec_prefix"
+     if test x${OAESIS_CONFIG+set} != xset ; then
+        OAESIS_CONFIG=$oaesis_config_exec_prefix/bin/oaesis-config
+     fi
+  fi
+  if test x$oaesis_config_prefix != x ; then
+     oaesis_config_args="$oaesis_config_args --prefix=$oaesis_config_prefix"
+     if test x${OAESIS_CONFIG+set} != xset ; then
+        OAESIS_CONFIG=$oaesis_config_prefix/bin/oaesis-config
+     fi
+  fi
+
+  # Extract the first word of "oaesis-config", so it can be a program name with args.
+set dummy oaesis-config; ac_word=$2
+echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
+echo "configure:1345: checking for $ac_word" >&5
+if eval "test \"`echo '$''{'ac_cv_path_OAESIS_CONFIG'+set}'`\" = set"; then
+  echo $ac_n "(cached) $ac_c" 1>&6
+else
+  case "$OAESIS_CONFIG" in
+  /*)
+  ac_cv_path_OAESIS_CONFIG="$OAESIS_CONFIG" # Let the user override the test with a path.
+  ;;
+  *)
+  IFS="${IFS= 	}"; ac_save_ifs="$IFS"; IFS="${IFS}:"
+  for ac_dir in $PATH; do
+    test -z "$ac_dir" && ac_dir=.
+    if test -f $ac_dir/$ac_word; then
+      ac_cv_path_OAESIS_CONFIG="$ac_dir/$ac_word"
+      break
+    fi
+  done
+  IFS="$ac_save_ifs"
+  test -z "$ac_cv_path_OAESIS_CONFIG" && ac_cv_path_OAESIS_CONFIG="no"
+  ;;
+esac
+fi
+OAESIS_CONFIG="$ac_cv_path_OAESIS_CONFIG"
+if test -n "$OAESIS_CONFIG"; then
+  echo "$ac_t""$OAESIS_CONFIG" 1>&6
+else
+  echo "$ac_t""no" 1>&6
+fi
+
+  min_oaesis_version=0.90
+  echo $ac_n "checking for oAESis - version >= $min_oaesis_version""... $ac_c" 1>&6
+echo "configure:1376: checking for oAESis - version >= $min_oaesis_version" >&5
+  no_oaesis=""
+  if test "$OAESIS_CONFIG" = "no" ; then
+    no_oaesis=yes
+  else
+    OAESIS_CFLAGS=`$OAESIS_CONFIG $oaesis_config_args --cflags`
+    OAESIS_LIBS=`$OAESIS_CONFIG $oaesis_config_args --libs`
+    oaesis_config_major_version=`$OAESIS_CONFIG $oaesis_config_args --version | \
+           sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\1/'`
+    oaesis_config_minor_version=`$OAESIS_CONFIG $oaesis_config_args --version | \
+           sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\2/'`
+    oaesis_config_micro_version=`$OAESIS_CONFIG $oaesis_config_args --version | \
+           sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\3/'`
+    if test "x$enable_oaesistest" = "xyes" ; then
+      ac_save_CFLAGS="$CFLAGS"
+      ac_save_LIBS="$LIBS"
+      CFLAGS="$CFLAGS $OAESIS_CFLAGS"
+      LIBS="$LIBS $OAESIS_LIBS"
+     fi
+  fi
+  if test "x$no_oaesis" = x ; then
+     echo "$ac_t""yes" 1>&6
+     :     
+  else
+     echo "$ac_t""no" 1>&6
+     if test "$OAESIS_CONFIG" = "no" ; then
+       echo "*** The oaesis-config script installed by oaesis could not be found"
+       echo "*** If oaesis was installed in PREFIX, make sure PREFIX/bin is in"
+       echo "*** your path, or set the OAESIS_CONFIG environment variable to the"
+       echo "*** full path to oaesis-config."
+     else
+        :
+     fi
+     OAESIS_CFLAGS=""
+     OAESIS_LIBS=""
+     { echo "configure: error: 
+*** oaesis 0.0.0 or better is required. The latest version of oaesis
+*** is always available from ftp://ftp.nocrew.org." 1>&2; exit 1; }
+  fi
+  
+  
+
+
+  oaesis_cflags=$OAESIS_CFLAGS
+  oaesis_libs=$OAESIS_LIBS
+else
+  # Use uninstalled oaesis (assume they got the version right)
+
+  if test -x $with_oaesis/oaesis-config ; then 
+    :
+  else
+    { echo "configure: error: oaesis directory ($with_oaesis) not present or not configured" 1>&2; exit 1; }
+  fi
+
+  # For use in oaesis-config
+  oaesis_cflags=`$with_oaesis/oaesis-config --cflags`
+  oaesis_libs=`$with_oaesis/oaesis-config --libs`
+
+  oaesis_release=`$with_oaesis/oaesis-config --version | sed 's%\\.[0-9]*$%%'`
+
+  # canonicalize relative paths
+  case $with_oaesis in 
+    /*)
+      oaesis_dir=$with_oaesis
+      ;;
+    *)
+      oaesis_dir="\$(top_builddir)/$with_oaesis"
+      ;;
+  esac
+
+  OAESIS_CFLAGS="-I$oaesis_dir"
+  OAESIS_LIBS=$oaesis_dir/liboaesis.la
+
+  
+  
+fi
+
+CPPFLAGS="$CPPFLAGS $OAESIS_CFLAGS"
 
 case "${target}" in
     *mint*)    DEFS="$DEFS -DMINT_TARGET" ;;
@@ -1442,11 +1606,12 @@ s%@MAKEINFO@%$MAKEINFO%g
 s%@SET_MAKE@%$SET_MAKE%g
 s%@CC@%$CC%g
 s%@RANLIB@%$RANLIB%g
-s%@OGEMLIBIS_CONFIG@%$OGEMLIBIS_CONFIG%g
-s%@OGEMLIBIS_CFLAGS@%$OGEMLIBIS_CFLAGS%g
-s%@OGEMLIBIS_LIBS@%$OGEMLIBIS_LIBS%g
-s%@ogemlibis_cflags@%$ogemlibis_cflags%g
-s%@ogemlibis_libs@%$ogemlibis_libs%g
+s%@OVDISIS_CONFIG@%$OVDISIS_CONFIG%g
+s%@OVDISIS_CFLAGS@%$OVDISIS_CFLAGS%g
+s%@OVDISIS_LIBS@%$OVDISIS_LIBS%g
+s%@OAESIS_CONFIG@%$OAESIS_CONFIG%g
+s%@OAESIS_CFLAGS@%$OAESIS_CFLAGS%g
+s%@OAESIS_LIBS@%$OAESIS_LIBS%g
 
 CEOF
 EOF
