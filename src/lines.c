@@ -320,11 +320,8 @@ main ()
 
   testwin();
 
-  /*
   appl_exit();
-        
   v_clsvwk(vid);
-  */
 
   return 0;
 }
