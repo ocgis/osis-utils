@@ -1,5 +1,5 @@
 #include <aesbind.h>
-#include <osbind.h>
+#include <mintbind.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +13,6 @@
 static int  vid;
 static WORD num_colors;
 static char title[] = "Lines";
-        
 
 WORD    max(WORD a,WORD b)
 {
