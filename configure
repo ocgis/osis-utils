@@ -23,6 +23,12 @@ ac_help="$ac_help
   --with-oaesis-exec-prefix=PFX Exec prefix where oaesis is installed (optional)"
 ac_help="$ac_help
   --disable-oaesistest       Do not try to compile and run a test oaesis program"
+ac_help="$ac_help
+  --with-mintwrappers-prefix=PFX   Prefix where mintwrappers is installed (optional)"
+ac_help="$ac_help
+  --with-mintwrappers-exec-prefix=PFX Exec prefix where mintwrappers is installed (optional)"
+ac_help="$ac_help
+  --disable-mintwrapperstest       Do not try to compile and run a test mintwrappers program"
 
 # Initialize some variables set by options.
 # The variables have the same names as the options, with
@@ -564,7 +570,7 @@ ac_configure=$ac_aux_dir/configure # This should be Cygnus configure.
 # SVR4 /usr/ucb/install, which tries to use the nonexistent group "staff"
 # ./install, which can be erroneously created by make from ./install.sh.
 echo $ac_n "checking for a BSD compatible install""... $ac_c" 1>&6
-echo "configure:568: checking for a BSD compatible install" >&5
+echo "configure:574: checking for a BSD compatible install" >&5
 if test -z "$INSTALL"; then
 if eval "test \"`echo '$''{'ac_cv_path_install'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -617,7 +623,7 @@ test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 test -z "$INSTALL_SCRIPT" && INSTALL_SCRIPT='${INSTALL_PROGRAM}'
 
 echo $ac_n "checking whether build environment is sane""... $ac_c" 1>&6
-echo "configure:621: checking whether build environment is sane" >&5
+echo "configure:627: checking whether build environment is sane" >&5
 # Just in case
 sleep 1
 echo timestamp > conftestfile
@@ -674,7 +680,7 @@ test "$program_suffix" != NONE &&
 test "$program_transform_name" = "" && program_transform_name="s,x,x,"
 
 echo $ac_n "checking whether ${MAKE-make} sets \${MAKE}""... $ac_c" 1>&6
-echo "configure:678: checking whether ${MAKE-make} sets \${MAKE}" >&5
+echo "configure:684: checking whether ${MAKE-make} sets \${MAKE}" >&5
 set dummy ${MAKE-make}; ac_make=`echo "$2" | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_prog_make_${ac_make}_set'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -713,7 +719,7 @@ fi
 
 missing_dir=`cd $ac_aux_dir && pwd`
 echo $ac_n "checking for working aclocal""... $ac_c" 1>&6
-echo "configure:717: checking for working aclocal" >&5
+echo "configure:723: checking for working aclocal" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -726,7 +732,7 @@ else
 fi
 
 echo $ac_n "checking for working autoconf""... $ac_c" 1>&6
-echo "configure:730: checking for working autoconf" >&5
+echo "configure:736: checking for working autoconf" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -739,7 +745,7 @@ else
 fi
 
 echo $ac_n "checking for working automake""... $ac_c" 1>&6
-echo "configure:743: checking for working automake" >&5
+echo "configure:749: checking for working automake" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -752,7 +758,7 @@ else
 fi
 
 echo $ac_n "checking for working autoheader""... $ac_c" 1>&6
-echo "configure:756: checking for working autoheader" >&5
+echo "configure:762: checking for working autoheader" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -765,7 +771,7 @@ else
 fi
 
 echo $ac_n "checking for working makeinfo""... $ac_c" 1>&6
-echo "configure:769: checking for working makeinfo" >&5
+echo "configure:775: checking for working makeinfo" >&5
 # Run test in a subshell; some versions of sh will print an error if
 # an executable is not found, even if stderr is redirected.
 # Redirect stdin to placate older versions of autoconf.  Sigh.
@@ -805,7 +811,7 @@ test "$program_transform_name" = "" && program_transform_name="s,x,x,"
 # Extract the first word of "gcc", so it can be a program name with args.
 set dummy gcc; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:809: checking for $ac_word" >&5
+echo "configure:815: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_CC'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -834,7 +840,7 @@ if test -z "$CC"; then
   # Extract the first word of "cc", so it can be a program name with args.
 set dummy cc; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:838: checking for $ac_word" >&5
+echo "configure:844: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_CC'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -882,7 +888,7 @@ fi
 fi
 
 echo $ac_n "checking whether the C compiler ($CC $CFLAGS $LDFLAGS) works""... $ac_c" 1>&6
-echo "configure:886: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) works" >&5
+echo "configure:892: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) works" >&5
 
 ac_ext=c
 # CFLAGS is not in ac_cpp because -g, -O, etc. are not valid cpp options.
@@ -892,11 +898,11 @@ ac_link='${CC-cc} -o conftest $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS 
 cross_compiling=$ac_cv_prog_cc_cross
 
 cat > conftest.$ac_ext <<EOF
-#line 896 "configure"
+#line 902 "configure"
 #include "confdefs.h"
 main(){return(0);}
 EOF
-if { (eval echo configure:900: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
+if { (eval echo configure:906: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
   ac_cv_prog_cc_works=yes
   # If we can't run a trivial program, we are probably using a cross compiler.
   if (./conftest; exit) 2>/dev/null; then
@@ -916,12 +922,12 @@ if test $ac_cv_prog_cc_works = no; then
   { echo "configure: error: installation or configuration problem: C compiler cannot create executables." 1>&2; exit 1; }
 fi
 echo $ac_n "checking whether the C compiler ($CC $CFLAGS $LDFLAGS) is a cross-compiler""... $ac_c" 1>&6
-echo "configure:920: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) is a cross-compiler" >&5
+echo "configure:926: checking whether the C compiler ($CC $CFLAGS $LDFLAGS) is a cross-compiler" >&5
 echo "$ac_t""$ac_cv_prog_cc_cross" 1>&6
 cross_compiling=$ac_cv_prog_cc_cross
 
 echo $ac_n "checking whether we are using GNU C""... $ac_c" 1>&6
-echo "configure:925: checking whether we are using GNU C" >&5
+echo "configure:931: checking whether we are using GNU C" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_gcc'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -930,7 +936,7 @@ else
   yes;
 #endif
 EOF
-if { ac_try='${CC-cc} -E conftest.c'; { (eval echo configure:934: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }; } | egrep yes >/dev/null 2>&1; then
+if { ac_try='${CC-cc} -E conftest.c'; { (eval echo configure:940: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }; } | egrep yes >/dev/null 2>&1; then
   ac_cv_prog_gcc=yes
 else
   ac_cv_prog_gcc=no
@@ -945,7 +951,7 @@ if test $ac_cv_prog_gcc = yes; then
   ac_save_CFLAGS="$CFLAGS"
   CFLAGS=
   echo $ac_n "checking whether ${CC-cc} accepts -g""... $ac_c" 1>&6
-echo "configure:949: checking whether ${CC-cc} accepts -g" >&5
+echo "configure:955: checking whether ${CC-cc} accepts -g" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_cc_g'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -983,7 +989,7 @@ fi
 # SVR4 /usr/ucb/install, which tries to use the nonexistent group "staff"
 # ./install, which can be erroneously created by make from ./install.sh.
 echo $ac_n "checking for a BSD compatible install""... $ac_c" 1>&6
-echo "configure:987: checking for a BSD compatible install" >&5
+echo "configure:993: checking for a BSD compatible install" >&5
 if test -z "$INSTALL"; then
 if eval "test \"`echo '$''{'ac_cv_path_install'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -1033,7 +1039,7 @@ test -z "$INSTALL_PROGRAM" && INSTALL_PROGRAM='${INSTALL}'
 test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 
 echo $ac_n "checking whether ${MAKE-make} sets \${MAKE}""... $ac_c" 1>&6
-echo "configure:1037: checking whether ${MAKE-make} sets \${MAKE}" >&5
+echo "configure:1043: checking whether ${MAKE-make} sets \${MAKE}" >&5
 set dummy ${MAKE-make}; ac_make=`echo "$2" | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_prog_make_${ac_make}_set'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -1062,7 +1068,7 @@ fi
 # Extract the first word of "ranlib", so it can be a program name with args.
 set dummy ranlib; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:1066: checking for $ac_word" >&5
+echo "configure:1072: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_prog_RANLIB'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -1084,50 +1090,6 @@ fi
 RANLIB="$ac_cv_prog_RANLIB"
 if test -n "$RANLIB"; then
   echo "$ac_t""$RANLIB" 1>&6
-else
-  echo "$ac_t""no" 1>&6
-fi
-
-
-echo $ac_n "checking for main in -lmint""... $ac_c" 1>&6
-echo "configure:1094: checking for main in -lmint" >&5
-ac_lib_var=`echo mint'_'main | sed 'y%./+-%__p_%'`
-if eval "test \"`echo '$''{'ac_cv_lib_$ac_lib_var'+set}'`\" = set"; then
-  echo $ac_n "(cached) $ac_c" 1>&6
-else
-  ac_save_LIBS="$LIBS"
-LIBS="-lmint  $LIBS"
-cat > conftest.$ac_ext <<EOF
-#line 1102 "configure"
-#include "confdefs.h"
-
-int main() {
-main()
-; return 0; }
-EOF
-if { (eval echo configure:1109: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
-  rm -rf conftest*
-  eval "ac_cv_lib_$ac_lib_var=yes"
-else
-  echo "configure: failed program was:" >&5
-  cat conftest.$ac_ext >&5
-  rm -rf conftest*
-  eval "ac_cv_lib_$ac_lib_var=no"
-fi
-rm -f conftest*
-LIBS="$ac_save_LIBS"
-
-fi
-if eval "test \"`echo '$ac_cv_lib_'$ac_lib_var`\" = yes"; then
-  echo "$ac_t""yes" 1>&6
-    ac_tr_lib=HAVE_LIB`echo mint | sed -e 's/[^a-zA-Z0-9_]/_/g' \
-    -e 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/'`
-  cat >> confdefs.h <<EOF
-#define $ac_tr_lib 1
-EOF
-
-  LIBS="-lmint $LIBS"
-
 else
   echo "$ac_t""no" 1>&6
 fi
@@ -1182,7 +1144,7 @@ fi
   # Extract the first word of "ovdisis-config", so it can be a program name with args.
 set dummy ovdisis-config; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:1186: checking for $ac_word" >&5
+echo "configure:1148: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_path_OVDISIS_CONFIG'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -1213,7 +1175,7 @@ fi
 
   min_ovdisis_version=0.0.1
   echo $ac_n "checking for oVDIsis - version >= $min_ovdisis_version""... $ac_c" 1>&6
-echo "configure:1217: checking for oVDIsis - version >= $min_ovdisis_version" >&5
+echo "configure:1179: checking for oVDIsis - version >= $min_ovdisis_version" >&5
   no_ovdisis=""
   if test "$OVDISIS_CONFIG" = "no" ; then
     no_ovdisis=yes
@@ -1341,7 +1303,7 @@ fi
   # Extract the first word of "oaesis-config", so it can be a program name with args.
 set dummy oaesis-config; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:1345: checking for $ac_word" >&5
+echo "configure:1307: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_path_OAESIS_CONFIG'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -1372,7 +1334,7 @@ fi
 
   min_oaesis_version=0.90
   echo $ac_n "checking for oAESis - version >= $min_oaesis_version""... $ac_c" 1>&6
-echo "configure:1376: checking for oAESis - version >= $min_oaesis_version" >&5
+echo "configure:1338: checking for oAESis - version >= $min_oaesis_version" >&5
   no_oaesis=""
   if test "$OAESIS_CONFIG" = "no" ; then
     no_oaesis=yes
@@ -1450,6 +1412,165 @@ else
 fi
 
 CPPFLAGS="$CPPFLAGS $OAESIS_CFLAGS"
+
+if test x$with_mintwrappers = xyes ; then
+  { echo "configure: error: 
+*** Directory must be specified for --with-mintwrappers" 1>&2; exit 1; }
+fi
+
+if test x$with_mintwrappers = x ; then 
+  # Look for separately installed mintwrappers
+
+  # Check whether --with-mintwrappers-prefix or --without-mintwrappers-prefix was given.
+if test "${with_mintwrappers_prefix+set}" = set; then
+  withval="$with_mintwrappers_prefix"
+  mintwrappers_config_prefix="$withval"
+else
+  mintwrappers_config_prefix=""
+fi
+
+# Check whether --with-mintwrappers-exec-prefix or --without-mintwrappers-exec-prefix was given.
+if test "${with_mintwrappers_exec_prefix+set}" = set; then
+  withval="$with_mintwrappers_exec_prefix"
+  mintwrappers_config_exec_prefix="$withval"
+else
+  mintwrappers_config_exec_prefix=""
+fi
+
+# Check whether --enable-mintwrapperstest or --disable-mintwrapperstest was given.
+if test "${enable_mintwrapperstest+set}" = set; then
+  enableval="$enable_mintwrapperstest"
+  :
+else
+  enable_mintwrapperstest=yes
+fi
+
+
+  if test x$mintwrappers_config_exec_prefix != x ; then
+     mintwrappers_config_args="$mintwrappers_config_args --exec-prefix=$mintwrappers_config_exec_prefix"
+     if test x${MINTWRAPPERS_CONFIG+set} != xset ; then
+        MINTWRAPPERS_CONFIG=$mintwrappers_config_exec_prefix/bin/mintwrappers-config
+     fi
+  fi
+  if test x$mintwrappers_config_prefix != x ; then
+     mintwrappers_config_args="$mintwrappers_config_args --prefix=$mintwrappers_config_prefix"
+     if test x${MINTWRAPPERS_CONFIG+set} != xset ; then
+        MINTWRAPPERS_CONFIG=$mintwrappers_config_prefix/bin/mintwrappers-config
+     fi
+  fi
+
+  # Extract the first word of "mintwrappers-config", so it can be a program name with args.
+set dummy mintwrappers-config; ac_word=$2
+echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
+echo "configure:1466: checking for $ac_word" >&5
+if eval "test \"`echo '$''{'ac_cv_path_MINTWRAPPERS_CONFIG'+set}'`\" = set"; then
+  echo $ac_n "(cached) $ac_c" 1>&6
+else
+  case "$MINTWRAPPERS_CONFIG" in
+  /*)
+  ac_cv_path_MINTWRAPPERS_CONFIG="$MINTWRAPPERS_CONFIG" # Let the user override the test with a path.
+  ;;
+  *)
+  IFS="${IFS= 	}"; ac_save_ifs="$IFS"; IFS="${IFS}:"
+  for ac_dir in $PATH; do
+    test -z "$ac_dir" && ac_dir=.
+    if test -f $ac_dir/$ac_word; then
+      ac_cv_path_MINTWRAPPERS_CONFIG="$ac_dir/$ac_word"
+      break
+    fi
+  done
+  IFS="$ac_save_ifs"
+  test -z "$ac_cv_path_MINTWRAPPERS_CONFIG" && ac_cv_path_MINTWRAPPERS_CONFIG="no"
+  ;;
+esac
+fi
+MINTWRAPPERS_CONFIG="$ac_cv_path_MINTWRAPPERS_CONFIG"
+if test -n "$MINTWRAPPERS_CONFIG"; then
+  echo "$ac_t""$MINTWRAPPERS_CONFIG" 1>&6
+else
+  echo "$ac_t""no" 1>&6
+fi
+
+  min_mintwrappers_version=0.0.0
+  echo $ac_n "checking for mintwrappers - version >= $min_mintwrappers_version""... $ac_c" 1>&6
+echo "configure:1497: checking for mintwrappers - version >= $min_mintwrappers_version" >&5
+  no_mintwrappers=""
+  if test "$MINTWRAPPERS_CONFIG" = "no" ; then
+    no_mintwrappers=yes
+  else
+    MINTWRAPPERS_CFLAGS=`$MINTWRAPPERS_CONFIG $mintwrappers_config_args --cflags`
+    MINTWRAPPERS_LIBS=`$MINTWRAPPERS_CONFIG $mintwrappers_config_args --libs`
+    mintwrappers_config_major_version=`$MINTWRAPPERS_CONFIG $mintwrappers_config_args --version | \
+           sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\1/'`
+    mintwrappers_config_minor_version=`$MINTWRAPPERS_CONFIG $mintwrappers_config_args --version | \
+           sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\2/'`
+    mintwrappers_config_micro_version=`$MINTWRAPPERS_CONFIG $mintwrappers_config_args --version | \
+           sed 's/\([0-9]*\).\([0-9]*\).\([0-9]*\)/\3/'`
+    if test "x$enable_mintwrapperstest" = "xyes" ; then
+      ac_save_CFLAGS="$CFLAGS"
+      ac_save_LIBS="$LIBS"
+      CFLAGS="$CFLAGS $MINTWRAPPERS_CFLAGS"
+      LIBS="$LIBS $MINTWRAPPERS_LIBS"
+     fi
+  fi
+  if test "x$no_mintwrappers" = x ; then
+     echo "$ac_t""yes" 1>&6
+     :     
+  else
+     echo "$ac_t""no" 1>&6
+     if test "$MINTWRAPPERS_CONFIG" = "no" ; then
+       echo "*** The mintwrappers-config script installed by mintwrappers could not be found"
+       echo "*** If mintwrappers was installed in PREFIX, make sure PREFIX/bin is in"
+       echo "*** your path, or set the MINTWRAPPERS_CONFIG environment variable to the"
+       echo "*** full path to mintwrappers-config."
+     else
+        :
+     fi
+     MINTWRAPPERS_CFLAGS=""
+     MINTWRAPPERS_LIBS=""
+     { echo "configure: error: 
+*** mintwrappers 0.0.0 or better is required. The latest version of mintwrappers
+*** is always available from ftp://ftp.nocrew.org." 1>&2; exit 1; }
+  fi
+  
+  
+
+
+  mintwrappers_cflags=$MINTWRAPPERS_CFLAGS
+  mintwrappers_libs=$MINTWRAPPERS_LIBS
+else
+  # Use uninstalled mintwrappers (assume they got the version right)
+
+  if test -x $with_mintwrappers/mintwrappers-config ; then 
+    :
+  else
+    { echo "configure: error: mintwrappers directory ($with_mintwrappers) not present or not configured" 1>&2; exit 1; }
+  fi
+
+  # For use in mintwrappers-config
+  mintwrappers_cflags=`$with_mintwrappers/mintwrappers-config --cflags`
+  mintwrappers_libs=`$with_mintwrappers/mintwrappers-config --libs`
+
+  mintwrappers_release=`$with_mintwrappers/mintwrappers-config --version | sed 's%\\.[0-9]*$%%'`
+
+  # canonicalize relative paths
+  case $with_mintwrappers in 
+    /*)
+      mintwrappers_dir=$with_mintwrappers
+      ;;
+    *)
+      mintwrappers_dir="\$(top_builddir)/$with_mintwrappers"
+      ;;
+  esac
+
+  MINTWRAPPERS_CFLAGS="-I$mintwrappers_dir"
+  MINTWRAPPERS_LIBS=$mintwrappers_dir/libmintwrappers.la
+
+  
+  
+fi
+
+CPPFLAGS="$CPPFLAGS $MINTWRAPPERS_CFLAGS"
 
 case "${target}" in
     *mint*)    DEFS="$DEFS -DMINT_TARGET" ;;
@@ -1612,6 +1733,9 @@ s%@OVDISIS_LIBS@%$OVDISIS_LIBS%g
 s%@OAESIS_CONFIG@%$OAESIS_CONFIG%g
 s%@OAESIS_CFLAGS@%$OAESIS_CFLAGS%g
 s%@OAESIS_LIBS@%$OAESIS_LIBS%g
+s%@MINTWRAPPERS_CONFIG@%$MINTWRAPPERS_CONFIG%g
+s%@MINTWRAPPERS_CFLAGS@%$MINTWRAPPERS_CFLAGS%g
+s%@MINTWRAPPERS_LIBS@%$MINTWRAPPERS_LIBS%g
 
 CEOF
 EOF
