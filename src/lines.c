@@ -5,16 +5,14 @@
 #include <string.h>
 #include <vdibind.h>
 
-#define WORD    short
-
 #define TRUE  1
 #define FALSE 0
 
 static int  vid;
-static WORD num_colors;
+static int num_colors;
 static char title[] = "Lines";
 
-WORD    max(WORD a,WORD b)
+int    max(int a,int b)
 {
   if(a > b) 
     return a;
@@ -22,7 +20,7 @@ WORD    max(WORD a,WORD b)
     return b;
 }
 
-WORD    min(WORD a,WORD b)
+int    min(int a,int b)
 {
   if(a < b) 
     return a;
@@ -41,19 +39,19 @@ WORD    min(WORD a,WORD b)
 static
 void
 updatewait (int wid) {
-  WORD  quit = FALSE;
-  WORD  ant_klick;
-  WORD  buffert[16];
-  WORD  happ;
-  WORD  knapplage;
-  WORD  lastline = 0;
-  WORD  num_lines = 1;
-  WORD  tangent,tanglage;
-  WORD  winx,winy,winw,winh;
-  WORD  x,y,w,h;
+  int   quit = FALSE;
+  int   ant_klick;
+  short buffert[16];
+  int   happ;
+  int   knapplage;
+  int   lastline = 0;
+  int   num_lines = 1;
+  int   tangent,tanglage;
+  int   winx,winy,winw,winh;
+  int   x,y,w,h;
   VRECT lines[NUM_LINES];
   
-  WORD  sx1 = 5,sy1 = 10,sx2 = 15,sy2 = 5;
+  int  sx1 = 5,sy1 = 10,sx2 = 15,sy2 = 5;
 
   wind_get (wid, WF_WORKXYWH, &winx, &winy, &winw, &winh);
 
@@ -81,7 +79,7 @@ updatewait (int wid) {
 
     if (happ & MU_MESAG) {
       if (buffert[0] == WM_REDRAW) {
-        WORD      x,y,w,h;
+        int      x,y,w,h;
         wind_update(BEG_UPDATE);
         
         wind_get (wid, WF_FIRSTXYWH, &x, &y, &w, &h);
@@ -93,7 +91,7 @@ updatewait (int wid) {
         
         while((w > 0) && (h > 0))
         {
-          WORD    xn,yn,wn,hn;
+          int    xn,yn,wn,hn;
           
           xn = max(x,buffert[4]);
           wn = min(x + w, buffert[4] + buffert[6]) - xn;
@@ -102,7 +100,7 @@ updatewait (int wid) {
           
           if((wn > 0) && (hn > 0))
           {
-            WORD  i;
+            int  i;
             int   xyxy[4];
             
             xyxy[0] = xn;
@@ -119,7 +117,7 @@ updatewait (int wid) {
             for(i = 0; i < num_lines; i++) {
               vsl_color(vid,i % (num_colors - 1));
               
-              v_pline(vid,2,&lines[i]);
+              v_pline(vid,2,(int *)&lines[i]);
             }
             
             graf_mouse (M_ON, NULL);
@@ -135,8 +133,8 @@ updatewait (int wid) {
       } else if (buffert[0] == WM_CLOSED) {
         quit = TRUE;
       } else if (buffert[0] == WM_SIZED) {          
-        WORD      i;
-        WORD      newx,newy,neww,newh;
+        int      i;
+        int      newx,newy,neww,newh;
         
         wind_set(wid,WF_CURRXYWH,buffert[4],buffert[5]
                  ,buffert[6],buffert[7]);
@@ -166,8 +164,8 @@ updatewait (int wid) {
         winw = neww;
         winh = newh;
       } else if (buffert[0] == WM_MOVED) {
-        WORD      i;
-        WORD      newx,newy,neww,newh;
+        int      i;
+        int      newx,newy,neww,newh;
         
         wind_set (wid,
                   WF_CURRXYWH,
@@ -249,11 +247,11 @@ updatewait (int wid) {
         graf_mouse (M_OFF, NULL);
 
         vsl_color(vid,lastline % (num_colors - 1));
-        v_pline(vid,2,&lines[lastline]);
+        v_pline(vid,2,(int *)&lines[lastline]);
         
         if(num_lines == NUM_LINES) {
           vsl_color(vid,BLACK);
-          v_pline(vid,2,&delete);
+          v_pline(vid,2,(int *)&delete);
         }
 
         graf_mouse (M_ON, NULL);
@@ -275,9 +273,9 @@ updatewait (int wid) {
 
 void testwin(void)
 {
-  WORD  xoff,yoff,woff,hoff;
+  int  xoff,yoff,woff,hoff;
   
-  WORD  wid;
+  int  wid;
   
   wind_get(0,WF_WORKXYWH,&xoff,&yoff,&woff,&hoff);
 
@@ -305,7 +303,7 @@ main ()
   
   int   work_out[57];
   
-  WORD  wc, hc, wb, hb;
+  int  wc, hc, wb, hb;
 
   appl_init();
 
