@@ -4,6 +4,9 @@ dnl For automake
 PACKAGE=osis-utils
 VERSION=0.0
 
+dnl Check system type
+AC_CANONICAL_SYSTEM
+
 dnl Initialize automake macros
 AM_INIT_AUTOMAKE($PACKAGE, $VERSION, no-define)
 
@@ -15,7 +18,10 @@ AC_ARG_PROGRAM
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
-AC_PROG_RANLIB
+
+dnl Use this instead of AC_PROG_RANLIB because
+dnl this works with cross-compiling.
+AC_CHECK_TOOL(RANLIB, ranlib, :)
 
 if test x$with_ovdisis = xyes ; then
   AC_MSG_ERROR([
@@ -117,66 +123,59 @@ fi
 
 CPPFLAGS="$CPPFLAGS $OAESIS_CFLAGS"
 
-if test x$with_mintwrappers = xyes ; then
+if test x$with_otosis = xyes ; then
   AC_MSG_ERROR([
-*** Directory must be specified for --with-mintwrappers])
+*** Directory must be specified for --with-otosis])
 fi
 
-if test x$with_mintwrappers = x ; then 
-  # Look for separately installed mintwrappers
+if test x$with_otosis = x ; then 
+  # Look for separately installed otosis
 
-  AM_PATH_MINTWRAPPERS(0.0.0,,
+  AM_PATH_OTOSIS(0.31.0,,
     AC_MSG_ERROR([
-*** mintwrappers 0.0.0 or better is required. The latest version of mintwrappers
+*** otosis 0.31.0 or better is required. The latest version of otosis
 *** is always available from ftp://ftp.nocrew.org.]),
-    libmintwrappers)
+    libotosis)
 
-  mintwrappers_cflags=$MINTWRAPPERS_CFLAGS
-  mintwrappers_libs=$MINTWRAPPERS_LIBS
+  otosis_cflags=$OTOSIS_CFLAGS
+  otosis_libs=$OTOSIS_LIBS
 else
-  # Use uninstalled mintwrappers (assume they got the version right)
+  # Use uninstalled otosis (assume they got the version right)
 
-  if test -x $with_mintwrappers/mintwrappers-config ; then 
+  if test -x $with_otosis/otosis-config ; then 
     :
   else
-    AC_MSG_ERROR([mintwrappers directory ($with_mintwrappers) not present or not configured])
+    AC_MSG_ERROR([otosis directory ($with_otosis) not present or not configured])
   fi
 
-  # For use in mintwrappers-config
-  mintwrappers_cflags=`$with_mintwrappers/mintwrappers-config --cflags`
-  mintwrappers_libs=`$with_mintwrappers/mintwrappers-config --libs`
+  # For use in oaesis-config
+  otosis_cflags=`$with_otosis/otosis-config --cflags`
+  otosis_libs=`$with_otosis/otosis-config --libs`
 
-  mintwrappers_release=`$with_mintwrappers/mintwrappers-config --version | sed 's%\\.[[0-9]]*$%%'`
+  otosis_release=`$with_otosis/otosis-config --version | sed 's%\\.[[0-9]]*$%%'`
 
   # canonicalize relative paths
-  case $with_mintwrappers in 
+  case $with_otosis in 
     /*)
-      mintwrappers_dir=$with_mintwrappers
+      otosis_dir=$with_otosis
       ;;
     *)
-      mintwrappers_dir="\$(top_builddir)/$with_mintwrappers"
+      otosis_dir="\$(top_builddir)/$with_otosis"
       ;;
   esac
 
-  MINTWRAPPERS_CFLAGS="-I$mintwrappers_dir"
-  MINTWRAPPERS_LIBS=$mintwrappers_dir/libmintwrappers.la
+  OTOSIS_CFLAGS="-I$otosis_dir"
+  OTOSIS_LIBS=$otosis_dir/libfb.la
 
-  AC_SUBST(MINTWRAPPERS_CFLAGS)
-  AC_SUBST(MINTWRAPPERS_LIBS)
+  AC_SUBST(OTOSIS_CFLAGS)
+  AC_SUBST(OTOSIS_LIBS)
 fi
 
-CPPFLAGS="$CPPFLAGS $MINTWRAPPERS_CFLAGS"
+CPPFLAGS="$CPPFLAGS $OTOSIS_CFLAGS"
 
 dnl Set target specific things
 case "${target}" in
     *mint*)    DEFS="$DEFS -DMINT_TARGET" ;;
-
-dnl Assume that MiNTwrapper includes are in /usr/local/include/tos
-dnl and that gemlib includes are in /usr/local/include/gem. This
-dnl has to be changed so that all include root directories are
-dnl searched for <root>/tos and <root>/gem
-dnl    *)    CPPFLAGS="$CPPFLAGS -I/usr/local/include/tos -I/usr/local/include/gem" ;;
-       *)    CPPFLAGS="$CPPFLAGS -I/usr/local/include/tos" ;;
 esac
 
 dnl Specify which variables that should be exchanged

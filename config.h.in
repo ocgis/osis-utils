@@ -1,4 +1,1 @@
 /* config.h.in.  Generated automatically from configure.in by autoheader.  */
-
-/* Define if you have the mint library (-lmint).  */
-#undef HAVE_LIBMINT
