@@ -47,9 +47,11 @@ updatewait (int wid) {
 
   wind_get (wid, WF_WORKXYWH, &winx, &winy, &winw, &winh);
 
+  /*
   fprintf (stderr, "wind_get (WF_WORKXYWH...): x=%d y=%d w=%d h=%d\n",
            winx, winy, winw, winh);
-  
+           */
+
   lines[0].v_x1 = winx;
   lines[0].v_y1 = winy;
   lines[0].v_x2 = winx + 100;
@@ -60,23 +62,29 @@ updatewait (int wid) {
                       ,0,0,0,0,buffert,0,&x,&y,&knapplage,&tanglage
                       ,&tangent,&ant_klick);
 
+    /*
     if (happ & MU_MESAG) {
       fprintf (stderr,
                "lines.prg: evnt_multi returned MU_MESAG, buffert[0] = 0x%x (%d)\n",
                buffert[0], buffert[0]);
     }
+    */
 
-    if((happ & MU_MESAG) && (buffert[0] == WM_REDRAW)) {
+    if ((happ & MU_MESAG) && (buffert[0] == WM_REDRAW)) {
       WORD	x,y,w,h;
-      
+
+      /*
       fprintf (stderr, "lines.prg: Got WM_REDRAW\n");
+      */
 
       wind_update(BEG_UPDATE);
       
       wind_get (wid, WF_FIRSTXYWH, &x, &y, &w, &h);
 
+      /*
       fprintf (stderr, "wind_get (WF_FIRSTXYWH...): x=%d y=%d w=%d h=%d\n",
                x, y, w, h);
+               */
 
       while((w > 0) && (h > 0))
       {
@@ -96,7 +104,7 @@ updatewait (int wid) {
           xyxy[1] = yn;
           xyxy[2] = xn+wn-1;
           xyxy[3] = yn+hn-1;
-          
+
           vs_clip(vid,1,xyxy);
 
           /*
@@ -186,8 +194,7 @@ updatewait (int wid) {
     }
     else if((happ & MU_KEYBD) && ((tangent & 0xff) == 'q')) {
       break;
-    }
-    else if(happ & MU_TIMER) {
+    } else if(happ & MU_TIMER) {
       VRECT	delete;
 
       /*
@@ -325,7 +332,6 @@ main ()
   v_opnvwk(work_in,&vid,work_out);
   num_colors = work_out[39];
   num_colors = 256;
-  fprintf (stderr, "num_colors = %d\n", num_colors);
 
   vsf_interior(vid,1);
   
